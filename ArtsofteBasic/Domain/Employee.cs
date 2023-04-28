@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿namespace ArtsofteBasic.Domain;
+
+/// <summary>
 /// Employee
 /// </summary>
 public class Employee
@@ -19,9 +21,9 @@ public class Employee
     public string Surname { get; init; } = string.Empty;
 
     /// <summary>
-    /// Date of birth
+    /// Age
     /// </summary>
-    public DateTime DateBirth { get; init; }
+    public int Age { get; init; }
 
     /// <summary>
     /// Gender
@@ -31,5 +33,10 @@ public class Employee
     /// <summary>
     /// Department
     /// </summary>
-    public Guid DepartmentId { get; set; }
+    public Department Department { get; set; } = new();
+    
+    /// <summary>
+    /// Programming language
+    /// </summary>
+    public ProgrammingLanguage ProgrammingLanguage { get; set; } = new();
 }
