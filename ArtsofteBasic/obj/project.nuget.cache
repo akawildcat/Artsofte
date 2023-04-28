@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "p2IIhib2g6dRnmdq39Fjr9K88nkhLd2wKvz51p2z7NSOZE9b7IQeucCbI856bcXXsTTYidckTU8vBRihS6YK9Q==",
+  "success": true,
+  "projectFilePath": "/Users/tanya/RiderProjects/TestTasks/Artsofte/ArtsofteBasic/ArtsofteBasic.csproj",
+  "expectedPackageFiles": [
+    "/Users/tanya/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/tanya/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

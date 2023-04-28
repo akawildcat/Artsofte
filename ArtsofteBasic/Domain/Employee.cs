@@ -16,7 +16,7 @@ public class Employee
     /// <summary>
     /// Surname
     /// </summary>
-    public string Name { get; init; } = string.Empty;
+    public string Surname { get; init; } = string.Empty;
 
     /// <summary>
     /// Date of birth
