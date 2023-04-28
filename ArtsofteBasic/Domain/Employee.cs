@@ -34,9 +34,11 @@ public class Employee
     /// Department
     /// </summary>
     public Department Department { get; set; } = new();
+    public Guid DepartmentId { get; set; }
     
     /// <summary>
     /// Programming language
     /// </summary>
     public ProgrammingLanguage ProgrammingLanguage { get; set; } = new();
+    public Guid ProgrammingLanguageId { get; set; }
 }

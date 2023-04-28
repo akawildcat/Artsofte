@@ -14,4 +14,9 @@ public class ProgrammingLanguage
     /// Name
     /// </summary>
     public string Name { get; init; } = string.Empty;
+    
+    /// <summary>
+    /// Id of employees in this language
+    /// </summary>
+    public IReadOnlyCollection<Employee> Employees { get; init; } = new List<Employee>();
 }

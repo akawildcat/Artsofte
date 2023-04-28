@@ -19,4 +19,9 @@ public class Department
     /// Floor
     /// </summary>
     public int Floor { get; init; }
+
+    /// <summary>
+    /// Id of employees in this department
+    /// </summary>
+    public IReadOnlyCollection<Employee> Employees { get; init; } = new List<Employee>();
 }

@@ -23,7 +23,5 @@ public class ArtsofteContext :
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
-
-        // base.OnAfterModelCreated(modelBuilder);
     }
 }

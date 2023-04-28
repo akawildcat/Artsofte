@@ -11,5 +11,14 @@ internal class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.ToTable(nameof(ArtsofteContext.Employees));
         builder.HasKey(entity => entity.Id);
         builder.Property(entity => entity.Id).ValueGeneratedNever();
+        builder
+            .HasOne(entity => entity.Department)
+            .WithMany(elem => elem.Employees)
+            .HasForeignKey(elem => elem.DepartmentId);
+        builder
+            .HasOne(entity => entity.ProgrammingLanguage)
+            .WithMany(elem => elem.Employees)
+            .HasForeignKey(elem => elem.ProgrammingLanguageId);
+        builder.Property(employee => employee.Gender).HasConversion<string>();
     }
 }
