@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6eE46IOuybapA++3mTwLrOfowTQakL+iY/rsqNchlaVRoGHiI9KTKSpJHUTCB++7uUVdToZ2GrKeKTpFO5lxqw==",
+  "dgSpecHash": "gCPnEB1v+nmSSq7ofMJc6U4h6VYvAAzbRR5l9QhPp7ZWJG4kwUlh1Cj25/P5fJObg1ymKcM+mA5K4GmvORMgOw==",
   "success": true,
   "projectFilePath": "/Users/tanya/RiderProjects/TestTasks/Artsofte/ArtsofteBasic/ArtsofteBasic.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "/Users/tanya/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/Users/tanya/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/tanya/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
+    "/Users/tanya/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.0/npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
     "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/Users/tanya/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

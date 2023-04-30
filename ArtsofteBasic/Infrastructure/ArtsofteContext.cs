@@ -24,4 +24,8 @@ public class ArtsofteContext :
 
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
     }
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     optionsBuilder.UseSqlite("Data Source=helloapp.db");
+    // }
 }
