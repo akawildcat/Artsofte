@@ -1,31 +1,33 @@
 
 
 using ArtsofteBasic.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Internal;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // read options section
-var db = builder.Configuration.GetSection(nameof(Db)).Get<Db>();
-// builder.Services.AddDatabase<TaskManagerContext>(dbDescription);
-var metadata = builder.Configuration.GetSection(nameof(StartMetadata)).Get<StartMetadata>();
-var dbDescription = new DbDescription(
-    Host: db.Host,
-    Port: db.Port,
-    Username: db.Username,
-    Password: db.Password,
-    Name: string.Join("_", new[] { metadata?.Environment, db.Name }.Where(s => !string.IsNullOrEmpty(s)))
-);
+// var db = builder.Configuration.GetSection(nameof(Db)).Get<Db>();
+// // builder.Services.AddDatabase<TaskManagerContext>(dbDescription);
+// var metadata = builder.Configuration.GetSection(nameof(StartMetadata)).Get<StartMetadata>();
+// var dbDescription = new DbDescription(
+//     Host: db.Host,
+//     Port: db.Port,
+//     Username: db.Username,
+//     Password: db.Password,
+//     Name: string.Join("_", new[] { metadata?.Environment, db.Name }.Where(s => !string.IsNullOrEmpty(s)))
+// );
+// builder.Services.AddSingleton<DbDescription>(dbDescription);
 
-builder.Services.AddDatabase<ArtsofteContext>(dbDescription);
-builder.Services.AddScoped<IArtsofteContext, ArtsofteContext>();
 
-builder.Services.AddControllers();
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ArtsofteContext>();
 
 // Migrator.Run<ArtsofteContext, Program>(args);
 
