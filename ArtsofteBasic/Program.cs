@@ -1,37 +1,31 @@
 
 
+using System.Data;
 using ArtsofteBasic.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.Extensions.Options;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// read options section
-// var db = builder.Configuration.GetSection(nameof(Db)).Get<Db>();
-// // builder.Services.AddDatabase<TaskManagerContext>(dbDescription);
-// var metadata = builder.Configuration.GetSection(nameof(StartMetadata)).Get<StartMetadata>();
-// var dbDescription = new DbDescription(
-//     Host: db.Host,
-//     Port: db.Port,
-//     Username: db.Username,
-//     Password: db.Password,
-//     Name: string.Join("_", new[] { metadata?.Environment, db.Name }.Where(s => !string.IsNullOrEmpty(s)))
-// );
-// builder.Services.AddSingleton<DbDescription>(dbDescription);
+// read connection string section
+var db = builder.Configuration.GetConnectionString("postgres");
 
-
-
-
+if (db == null || db.Equals(""))
+{
+    throw new Exception("db string is empty");
+}
+builder.Services.AddDbContext<ArtsofteContext>(opt => opt.UseNpgsql(db));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ArtsofteContext>();
-
-// Migrator.Run<ArtsofteContext, Program>(args);
 
 var app = builder.Build();
+using var scope = app.Services.CreateScope();
+(scope.ServiceProvider.GetService<ArtsofteContext>() ?? throw new Exception(message: "Can't migrate database"))
+    .Database.Migrate();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
