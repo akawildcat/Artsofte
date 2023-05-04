@@ -1,5 +1,4 @@
 using ArtsofteBasic.Domain;
-using ArtsofteBasic.DTOs;
 using ArtsofteBasic.Logic.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +21,7 @@ public class DepartmentController : ControllerBase
     /// <summary>
     /// Get Department by id
     /// </summary>
+    /// <returns>Department</returns>
     /// <response code="200">Success</response>
     [HttpGet("{id}")]
     public async Task<ActionResult<Department>> Get(Guid id)
@@ -30,22 +30,21 @@ public class DepartmentController : ControllerBase
         var dto = await _mediator.Send(query);
         return Ok(dto);
     }
-    // /// <summary>
-    //     /// Get all checks list
-    //     /// </summary>
-    //     /// <returns>ChecksListVm</returns>
-    //     /// <response code="200">Success</response>
-    //     /// <response code="401">If the user is unauthorized</response>
-    //     [HttpGet]
-    //     [ProducesResponseType(StatusCodes.Status200OK)]
-    //     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    //     public async Task<ActionResult<IReadOnlyCollection<CheckKindDto>>> GetAll()
-    //     {
-    //         var query = new GetCheckKindListQuery();
-    //
-    //         IReadOnlyCollection<CheckKindDto> vm = await _mediator.Send(query);
-    //         return Ok(vm);
-    //     }
+    /// <summary>
+    /// Get all departments list
+    /// </summary>
+    /// <returns>Department List</returns>
+    /// <response code="200">Success</response>
+    [HttpGet] 
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<IQueryable>> GetAll()
+    { 
+            var query = new GetDepartmentListQuery();
+    
+            IQueryable departments = await _mediator.Send(query);
+            return Ok(departments); 
+        }
+    
     // /// <summary>
     // /// Create ElectricalHazardousWorkPermit
     // /// </summary>
