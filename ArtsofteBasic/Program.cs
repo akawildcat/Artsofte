@@ -21,7 +21,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 using var scope = app.Services.CreateScope();
-(scope.ServiceProvider.GetService<ArtsofteContext>() ?? throw new Exception(message: "Can't migrate database"))
+(scope.ServiceProvider.GetService<ArtsofteContext>() 
+ ?? throw new Exception(message: "Can't migrate database"))
     .Database.Migrate();
 
 // Configure the HTTP request pipeline.
