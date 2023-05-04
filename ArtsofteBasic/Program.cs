@@ -10,7 +10,7 @@ using Npgsql;
 var builder = WebApplication.CreateBuilder(args);
 
 // read connection string section
-var db = builder.Configuration.GetConnectionString("postgres");
+var db = builder.Configuration.GetConnectionString("mssql");
 
 if (db == null || db.Equals(""))
 {
@@ -34,44 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Migrator.Run<ArtsofteContext, Program>(args);
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
+// app.MapControllers();
 
 app.Run();
-
-internal class Db
-{
-    public string Host { get; init; } = string.Empty;
-    public int Port { get; init; }
-    public string Username { get; init; } = string.Empty;
-    public string Password { get; init; } = string.Empty;
-    public string Name { get; init; } = string.Empty;
-}
-public record DbDescription(
-    string Host,
-    int Port,
-    string Username,
-    string Password,
-    string Name)
-{
-}
-
-public class StartMetadata
-{
-    public string Environment { get; init; }
-    public string ServiceName { get; init; }
-    public string SubService { get; init; }
-    public string ServiceVersion { get; init; }
-    public SwaggerUsage UseSwagger { get; init; }
-    public string RoutingName { get; init; }
-}
-public enum SwaggerUsage
-{
-    Local,
-    Environment,
-    None,
-}

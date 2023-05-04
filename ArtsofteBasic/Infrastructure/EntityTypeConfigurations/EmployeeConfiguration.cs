@@ -13,11 +13,11 @@ internal class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.Property(entity => entity.Id).ValueGeneratedNever();
         builder
             .HasOne(entity => entity.Department)
-            .WithMany(elem => elem.Employees)
+            .WithMany()
             .HasForeignKey(elem => elem.DepartmentId);
         builder
             .HasOne(entity => entity.ProgrammingLanguage)
-            .WithMany(elem => elem.Employees)
+            .WithMany()
             .HasForeignKey(elem => elem.ProgrammingLanguageId);
         builder.Property(employee => employee.Gender).HasConversion<string>();
     }

@@ -24,13 +24,4 @@ public class ArtsofteContext :
 
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
     }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql(
-                                 "Db:Name=test_artsoftebasic" +
-        "Db:Host=localhost" +
-        "Db:Port=49000" +
-        "Db:Username=postgres" +
-        "Db:Password=298180");
-    }
 }
