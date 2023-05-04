@@ -1,4 +1,6 @@
-﻿namespace ArtsofteBasic.Domain;
+﻿using System;
+
+namespace ArtsofteBasic.Domain;
 
 /// <summary>
 /// Employee
