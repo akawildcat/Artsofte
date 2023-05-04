@@ -1,17 +1,9 @@
 
 
-using System;
-using System.Data;
 using ArtsofteBasic.Infrastructure;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations.Internal;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
-using Npgsql;
-
+using System.Data.SqlClient;
+    
 var builder = WebApplication.CreateBuilder(args);
 
 // read connection string section
@@ -21,7 +13,7 @@ if (db == null || db.Equals(""))
 {
     throw new Exception("db string is empty");
 }
-builder.Services.AddDbContext<ArtsofteContext>(opt => opt.UseNpgsql(db));
+builder.Services.AddDbContext<ArtsofteContext>(opt => opt.UseSqlServer(db));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
