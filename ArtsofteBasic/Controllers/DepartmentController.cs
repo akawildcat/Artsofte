@@ -1,4 +1,6 @@
 using ArtsofteBasic.Domain;
+using ArtsofteBasic.DTOs;
+using ArtsofteBasic.Logic.Commands;
 using ArtsofteBasic.Logic.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -45,29 +47,22 @@ public class DepartmentController : ControllerBase
             return Ok(departments); 
         }
     
-    // /// <summary>
-    // /// Create ElectricalHazardousWorkPermit
-    // /// </summary>
-    // /// <returns>ElectricalHazardousWorkPermitVm</returns>
-    // /// <response code="200">Success</response>
-    // /// <response code="401">If the user is unauthorized</response>
-    // [HttpPost]
-    // public async Task<ActionResult<ElectricalHazardousWorkPermitVm>> CreateElectricalHazardousWorkPermit(CreateElectricalHazardousWorkPermitExtDto request)
-    // {
-    //     var command = new CreateElectricalHazardousWorkPermitCommand()
-    //     {
-    //         DepartmentId = request.DepartmentId,
-    //         WorkerId = request.WorkerId,
-    //         ResponsibleId = request.ResponsibleId,
-    //         StartDate = request.StartDate,
-    //         EndDate = request.EndDate,
-    //         ObjectId = request.ObjectId
-    //     };
-    //     var dto = await _mediator.Send(command);
-    //     var vm = _electricalHazardousWorkPermitService.DtoToVm(dto);
-    //     return Ok(vm);
-    // }
-    //
+    /// <summary>
+    /// Create Department
+    /// </summary>
+    /// <returns>Department</returns>
+    /// <response code="200">Success</response>
+    /// <response code="401">If the user is unauthorized</response>
+    [HttpPost]
+    public async Task<ActionResult<Department>> CreateDepartment(CreateDepartmentDto request)
+    {
+        var command = new CreateDepartmentCommand(
+            Name: request.Name,
+            Floor: request.Floor);
+        var dto = await _mediator.Send(command);
+        return Ok(dto);
+    }
+    
     // /// <summary>
     // /// Update ElectricalHazardousWorkPermit
     // /// </summary>

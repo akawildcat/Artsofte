@@ -10,6 +10,8 @@ internal class DepartmentConfiguration : IEntityTypeConfiguration<Department>
     {
         builder.ToTable(nameof(ArtsofteContext.Departments));
         builder.HasKey(entity => entity.Id);
+        
+        // TODO: replace ValueGeneratedNever to Database generated
         builder.Property(entity => entity.Id).ValueGeneratedNever();
     }
 }
