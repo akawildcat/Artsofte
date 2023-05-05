@@ -12,4 +12,4 @@ Application Run
 * First it does the migration
 * At this time swagger window is not working 
 * After you receive the message about finishing the migration reload swagger window in browser.
-* Use endpoints to list, create and update database entries (only Department awailable now)
+* Use endpoints to list, create and update database entries (only Department available now)
