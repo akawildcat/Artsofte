@@ -1,14 +1,14 @@
-﻿using System;
+﻿using ArtsofteBasic.Domain;
 
-namespace ArtsofteBasic.Domain;
+namespace ArtsofteBasic.DTOs;
 
 /// <summary>
-/// Employee
+/// ДТО сотрудника
 /// </summary>
-public class Employee
+public class EmployeeDto
 {
     /// <summary>
-    /// Id
+    /// Идентификатор
     /// </summary>
     public Guid Id { get; init; }
 
@@ -35,12 +35,10 @@ public class Employee
     /// <summary>
     /// Department
     /// </summary>
-    public Department Department { get; set; } = new();
-    public Guid DepartmentId { get; set; }
-    
+    public string DepartmentName { get; set; } = string.Empty;
+
     /// <summary>
     /// Programming language
     /// </summary>
-    public ProgrammingLanguage ProgrammingLanguage { get; set; } = new();
-    public Guid ProgrammingLanguageId { get; set; }
+    public string ProgrammingLanguageName { get; set; } = string.Empty;
 }

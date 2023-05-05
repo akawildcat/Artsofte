@@ -1,3 +1,5 @@
+namespace ArtsofteBasic.Domain;
+
 /// <summary>
 /// Possible genders
 /// </summary>
